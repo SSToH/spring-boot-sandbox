@@ -1,11 +1,39 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <title>Berserker index page</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta charset="UTF-8" />
-</head>
-<body>
-  <p>Hello, berserker!</p>
-</body>
+    <head>
+        <title>ユーザ登録画面</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div>
+            <h1>ユーザ登録</h1>
+        </div>
+        <div class="">
+            <h5 th:text="${message}"></h5>
+            <h3>お客様のユーザ名、メールアドレス、パスワードをご入力ください。</h3>
+        </div>
+        <form id="form" class="" th:action="@{/user/registration}" th:object="${form}" method="post">
+            <table class="">
+              <tr>
+                  <th><label>ユーザ名</label></th>
+                  <td><input type="text" id="userName" name="userName" th:field="*{userName}"/></td>
+                  <td><span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class=""></span></td>
+              </tr>
+              <tr>
+                  <th><label>メールアドレス</label></th>
+                  <td><input type="text" id="email" name="email" th:field="*{email}"/></td>
+                  <td><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class=""></span></td>
+              </tr>
+              <tr>
+                  <th><label>パスワード</label></th>
+                  <td><input type="password" id="password" name="password" th:field="*{password}"/></td>
+                  <td><span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class=""></span></td>
+              </tr>
+            </table>
+            <div class="">
+                <button id="register" class="" name="conf">確認</button>
+            </div>
+        </form>
+    </body>
 </html>
