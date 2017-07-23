@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>ユーザ登録確認画面</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div>
+            <h1>ユーザ登録確認</h1>
+        </div>
+        <div class="">
+            <h5 th:text="${message}"></h5>
+            <h3>入力内容をご確認ください。</h3>
+        </div>
+        <form id="form" class="" th:action="@{/user/registration/conf}" th:object="${form}" method="post">
+            <table class="">
+              <tr>
+                  <th><label>ユーザ名</label></th>
+                  <th><label th:text="*{userName}"></label></th>
+              </tr>
+              <tr>
+                  <th><label>メールアドレス</label></th>
+                  <th><label th:text="*{email}"></label></th>
+              </tr>
+              <tr>
+                  <th><label>パスワード</label></th>
+                  <th><label th:text="*{password}"></label></th>
+              </tr>
+            </table>
+            <div class="">
+                <button id="register" class="" name="comp">確定</button>
+            </div>
+        </form>
+    </body>
+</html>
